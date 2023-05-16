@@ -1,4 +1,4 @@
-package com.claudiocarige.microclient.application;
+package com.claudiocarige.microclient.application.resouces;
 
 import com.claudiocarige.microclient.domain.Client;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ public class ClientResource {
 
     @PostMapping
     public ResponseEntity<Client> insert(@RequestBody Client client){
-         
+         return null;
     }
 
 }

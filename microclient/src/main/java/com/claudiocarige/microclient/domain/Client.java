@@ -18,11 +18,11 @@ public class Client {
     private Long id;
     private String cpf;
     private String name;
-    private Integer idade;
+    private Integer age;
 
-    public Client(String cpf, String name, Integer idade) {
+    public Client(String cpf, String name, Integer age) {
         this.cpf = cpf;
         this.name = name;
-        this.idade = idade;
+        this.age = age;
     }
 }

@@ -21,6 +21,6 @@ public class CardPersonalService {
     }
     public List<CardPersonal> getCardsPersonalLessEqual(Long income){
         var incomeBigDecimal = BigDecimal.valueOf(income);
-        return  cardPersonalRepository.findByIncomeLessThanEqual(income);
+        return  cardPersonalRepository.findByIncomeLessThanEqual(incomeBigDecimal);
     }
 }

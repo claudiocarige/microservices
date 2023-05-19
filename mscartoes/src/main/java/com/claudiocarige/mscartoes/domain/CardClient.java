@@ -1,2 +1,4 @@
-package com.claudiocarige.mscartoes.domain;public class CardClient {
+package com.claudiocarige.mscartoes.domain;
+
+public class CardClient {
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/cards")
@@ -28,5 +30,14 @@ public class CardsResource {
         CardPersonal cardpersonal = cardRepresentation.toModel();
         cardPersonalService.insert(cardpersonal);
        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping(params = "income")
+    public ResponseEntity<List<CardPersonalRepresentation>> findByIncomeLess(@RequestParam("income") Long income){
+        List<CardPersonal> list = cardPersonalService.getCardsPersonalLessEqual(income);
+        List<CardPersonalRepresentation> listRepresentation = list.stream()
+                .map(x -> new CardPersonalRepresentation(x))
+                .collect(Collectors.toList());;
+        return ResponseEntity.ok(listRepresentation);
     }
 }

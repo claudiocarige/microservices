@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cards")
 public class CardsResource {
-
+ 
     @GetMapping
     public String status(){
         return "Cartões ok";

@@ -4,26 +4,38 @@ import com.claudiocarige.microclient.application.representation.ClientSaveReques
 import com.claudiocarige.microclient.application.services.ClientService;
 import com.claudiocarige.microclient.domain.Client;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Random;
 
 @RestController
-@RequestMapping(value = "/clients")
+@RequestMapping("clients")
 @RequiredArgsConstructor
+@Slf4j
 public class ClientResource {
 
     private final ClientService clientService;
 
     @GetMapping
     public String status(){
+        //Teste de Balanceamento
+        Random random = new Random();
+        int randomNumber = random.nextInt(100);
+        log.info("Obtendo status do Microservice do Cliente. " + randomNumber);
         return "ok";
     }
 
     @PostMapping
     public ResponseEntity<Client> insert(@RequestBody ClientSaveRequest clientRequest){
+        //Teste de Balanceamento
+        Random random = new Random();
+        int randomNumber = random.nextInt(100);
+        log.info("STATUS de POST do Cliente. " + randomNumber);
+
         var client = clientRequest.toModel();
         clientService.insert(client);
         URI headerLocation = ServletUriComponentsBuilder

@@ -1,2 +1,4 @@
-package com.claudiocarige.mscartoes.application.representation;public class CardPersonalRepresentation {
+package com.claudiocarige.mscartoes.application.representation;
+
+public class CardPersonalRepresentation {
 }

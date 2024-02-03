@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -27,6 +28,11 @@ public class ClientResource {
         int randomNumber = random.nextInt(100);
         log.info("Obtendo status do Microservice do Cliente. " + randomNumber);
         return "ok";
+    }
+
+    @GetMapping(value = "/all-clients")
+    public ResponseEntity<List<Client>> findAll(){
+        return ResponseEntity.ok().body(clientService.findAll());
     }
 
     @PostMapping

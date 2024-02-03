@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -20,6 +21,11 @@ public class ClientService {
     }
 
     public Optional<Client> getByCpf(String cpf){
+
         return clientRepository.findByCpf(cpf);
+    }
+
+    public List<Client> findAll(){
+        return clientRepository.findAll();
     }
 }
